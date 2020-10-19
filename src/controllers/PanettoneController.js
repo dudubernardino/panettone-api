@@ -18,11 +18,9 @@ class PanettoneController {
         return res.json({ message: 'Panetone não encontrado.'});
       }
 
-      panettones.filter((panettone) => {
-        if(panettone.id === Number(id)) {
-          return res.json(panettone);
-        }
-      });
+      const panettone = panettones.find(p => p.id == id);
+
+      return res.json(panettone);
     } catch(err) {
       console.log(err);
     }
